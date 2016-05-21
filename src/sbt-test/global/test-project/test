@@ -1,0 +1,13 @@
+> isCurrentProject root
+
+> j oot
+> isCurrentProject footprint
+
+> j oot
+> isCurrentProject root
+
+> j br
+> isCurrentProject bar
+
+-> j unknown # expected to fail..
+> isCurrentProject bar
