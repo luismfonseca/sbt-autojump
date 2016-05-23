@@ -12,3 +12,4 @@ sbtPlugin := true
 scriptedSettings
 scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
 
+test <<= scriptedTask.toTask("")
