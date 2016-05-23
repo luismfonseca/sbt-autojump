@@ -2,9 +2,7 @@ resolvers += "sonatype-releases" at "https://oss.sonatype.org/content/repositori
 
 logLevel := Level.Warn
 
-libraryDependencies <+= (sbtVersion) { sv =>
-  "org.scala-sbt" % "scripted-plugin" % sv
-}
+libraryDependencies += "org.scala-sbt" % "scripted-plugin" % sbtVersion.value
 
 // Scripted plugin needs to declare this as a dependency
 libraryDependencies += "jline" % "jline" % "2.11"

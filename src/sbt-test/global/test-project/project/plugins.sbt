@@ -1,1 +1,1 @@
-addSbtPlugin("luisfonseca.xyz" % "sbt-autojump" % sys.props("project.version"))
+addSbtPlugin("xyz.luisfonseca" % "sbt-autojump" % sys.props("project.version"))
