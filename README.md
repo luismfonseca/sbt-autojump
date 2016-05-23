@@ -26,5 +26,5 @@ Add the following line to one of these files:
 - Your global file at ~/.sbt/0.13/plugins/sbt-j.sbt
 
 ```
-addSbtPlugin("luisfonseca.xyz" % "sbt-autojump" % "1.0.0")
+addSbtPlugin("xyz.luisfonseca" % "sbt-autojump" % "1.0.0")
 ```

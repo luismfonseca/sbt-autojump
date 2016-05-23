@@ -1,6 +1,6 @@
 name := "sbt-autojump"
 
-organization := "luisfonseca.xyz"
+organization := "xyz.luisfonseca"
 
 version := "1.0.0"
 
