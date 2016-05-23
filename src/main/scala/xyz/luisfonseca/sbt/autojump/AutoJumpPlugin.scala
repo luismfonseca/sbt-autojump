@@ -23,15 +23,14 @@ object AutoJumpPlugin extends AutoPlugin {
     val allProjectsName = allProjects.map(_.project)
 
     // 1. Simple String.Contains strategy
-    val containsMatch = structure.allProjectRefs
-      .sorted
+    val containsMatch = allProjects
       .filterNot(_.project == currentRef.project)
       .find(_.project.contains(arg))
 
     // 2. Sort all projects by the name distance to `arg` (Levenshtein algorithm), then select the one that
     // has all the chars in `arg` by their order present.
     val distanceSortedProjects =
-      Command.suggestions(arg, allProjectsName, allProjectsName.map(_.length).max, structure.allProjectRefs.length)
+      Command.suggestions(arg, allProjectsName, allProjectsName.map(_.length).max, allProjects.length)
         .filterNot(_ == currentRef.project)
 
     val containsDistanceMatch = {
@@ -41,8 +40,9 @@ object AutoJumpPlugin extends AutoPlugin {
           case (cursor, (letter, index)) => a.indexOf(letter, cursor)
         } != -1
 
-      distanceSortedProjects.find(p => containsInOrder(p, arg))
-        .map(project => structure.allProjectRefs.find(_.project == project).get)
+      distanceSortedProjects
+        .find(p => containsInOrder(p, arg))
+        .flatMap(p => allProjects.find(_.project == p))
     }
 
     containsMatch.orElse(containsDistanceMatch) match {
