@@ -1,4 +1,5 @@
 # SBT AutoJump Plugin
+[![Build Status](https://travis-ci.org/luismfonseca/sbt-autojump.svg?branch=master)](https://travis-ci.org/luismfonseca/sbt-autojump)
 
 For autojump-like jumps between sbt projects - no need to type the project full name as it will try
 to guess the one you are referring to and switch to that project.
