@@ -2,7 +2,7 @@ name := "sbt-autojump"
 
 organization := "xyz.luisfonseca"
 
-version := "1.0.0"
+version := "1.0.1"
 
 scalaVersion := "2.10.6"
 
