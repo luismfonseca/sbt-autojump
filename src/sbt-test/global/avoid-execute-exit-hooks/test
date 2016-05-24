@@ -1,0 +1,19 @@
+# Create 'temp' file
+$ touch temp
+
+# Configure the delete hook
+> deleteFileOnExitHook temp
+
+# Jump around
+> j foo
+
+$ exists temp
+
+> j bar
+
+$ exists temp
+
+# Actually exit sbt...
+-> exit
+
+$ absent temp

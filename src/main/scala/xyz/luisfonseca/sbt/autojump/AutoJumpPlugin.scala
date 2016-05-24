@@ -52,11 +52,11 @@ object AutoJumpPlugin extends AutoPlugin {
       case Some(projectRef) =>
         val newSession = session.setCurrent(projectRef.build, projectRef.project, session.currentEval)
 
-        Project.setProject(newSession, structure, state)
+        Project.updateCurrent(state.put(Keys.sessionSettings, newSession))
     }
   }
 
-  override def projectSettings: Seq[Setting[_]] = Seq(sbt.Keys.commands += autoj)
+  override def projectSettings: Seq[Setting[_]] = Seq(Keys.commands += autoj)
 
   override def trigger: PluginTrigger = allRequirements
 }
