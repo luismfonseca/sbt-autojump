@@ -4,17 +4,17 @@ organization := "xyz.luisfonseca"
 
 version := "1.0.1"
 
-scalaVersion := "2.10.6"
+crossSbtVersions := Vector("0.13.16", "1.0.2")
 
 licenses := Seq("MIT License" -> url("https://raw.githubusercontent.com/luismfonseca/sbt-autojump/master/LICENSE"))
 
 sbtPlugin := true
 
 // Scripted - sbt plugin tests
-scriptedSettings
-scriptedLaunchOpts <+= version apply { v => "-Dproject.version="+v }
+scriptedLaunchOpts += s"-Dplugin.version=${version.value}"
+scriptedBufferLog := false
 
-test <<= scriptedTask.toTask("")
+test := ScriptedPlugin.scriptedTask.toTask("").value
 
 publishTo := {
   val nexus = "https://oss.sonatype.org/"
